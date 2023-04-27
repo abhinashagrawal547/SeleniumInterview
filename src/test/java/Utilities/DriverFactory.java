@@ -3,6 +3,7 @@ package Utilities;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.junit.After;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -41,5 +42,10 @@ public class DriverFactory {
 			}
 			return driver;
 		}
+	}
+	
+	@After
+	public void closeBrowser() {
+		DriverFactory.getDriver("GC").quit();
 	}
 }

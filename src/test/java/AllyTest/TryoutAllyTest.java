@@ -37,7 +37,6 @@ public class TryoutAllyTest {
 			AXE.writeResults("TryoutAllyTest", jsonArr);
 			Assert.assertTrue(AXE.report(jsonArr), false);
 		}
-		
 		System.out.println("method b");
 	}
 	

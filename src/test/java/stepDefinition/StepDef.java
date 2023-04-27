@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -46,11 +47,10 @@ public class StepDef extends DriverFactory {
 		driver.get("https://demosite.executeautomation.com/index.html");
 		String valueToBeChecked = "Abhinash";
 		
-//		Read excel
-		
-//		Boolean isValuePresent = ExcelUtility.verifyAValueiSPresent(
-//				"C:\\Users\\abhinagr\\eclipse-workspace\\InterviewSelenium\\Resources\\TestData.xlsx", valueToBeChecked);
-//		Assert.assertTrue("Value "+ valueToBeChecked + " not present in excel", isValuePresent);
+		//Read excel
+			//		Boolean isValuePresent = ExcelUtility.verifyAValueiSPresent(
+			//				"C:\\Users\\abhinagr\\eclipse-workspace\\InterviewSelenium\\Resources\\TestData.xlsx", valueToBeChecked);
+			//		Assert.assertTrue("Value "+ valueToBeChecked + " not present in excel", isValuePresent);
 	}
 	
 	@When("it enters values into fields")
@@ -60,35 +60,35 @@ public class StepDef extends DriverFactory {
 		obj.enterText("Abhinash");
 		obj.txtFirstName.click();
 
-//		select 
-		Select sel = new Select(obj.getTitleDropDown());
-		List<WebElement> selOptList = sel.getOptions();
-		Iterator<WebElement> iterator = selOptList.iterator();
-		while(iterator.hasNext()) {
-			System.out.println(iterator.next().getText());
-		}
+		//select get all the options from dropdown
 		
-//		empty a textbox without clear() method
+			Select sel = new Select(obj.getTitleDropDown());
+			List<WebElement> listOfOptions = sel.getOptions();
+			for(int i=0; i< listOfOptions.size(); i++) {
+				System.out.println(listOfOptions.get(i).getText());
+			}
 		
-//		Robot rob;
-//		rob = new Robot();
-//		rob.keyPress(KeyEvent.VK_CONTROL);
-//		Thread.sleep(1000);
-//		rob.keyPress(KeyEvent.VK_A);
-//		Thread.sleep(1000);
-//		rob.keyPress(KeyEvent.VK_BACK_SPACE);
-//		Thread.sleep(1000);
-//		rob.keyRelease(KeyEvent.VK_BACK_SPACE);
-//		Thread.sleep(1000);
-//		rob.keyRelease(KeyEvent.VK_CONTROL);
-//		Thread.sleep(1000);
-//		rob.keyRelease(KeyEvent.VK_A);
+		//empty a textbox without clear() method
+		
+			//		Robot rob;
+			//		rob = new Robot();
+			//		rob.keyPress(KeyEvent.VK_CONTROL);
+			//		Thread.sleep(1000);
+			//		rob.keyPress(KeyEvent.VK_A);
+			//		Thread.sleep(1000);
+			//		rob.keyPress(KeyEvent.VK_BACK_SPACE);
+			//		Thread.sleep(1000);
+			//		rob.keyRelease(KeyEvent.VK_BACK_SPACE);
+			//		Thread.sleep(1000);
+			//		rob.keyRelease(KeyEvent.VK_CONTROL);
+			//		Thread.sleep(1000);
+			//		rob.keyRelease(KeyEvent.VK_A);
 
-//		take screenshot
+		//take screenshot
 		
-//		File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-//		Reporter.addScreenCaptureFromPath(file.getAbsolutePath());
-//		obj.clickBtnSave();
+			//File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			//Reporter.addScreenCaptureFromPath(file.getAbsolutePath());
+			//obj.clickBtnSave();
 	}
 	
 	@Then("verify the textbox value entered is correct")
@@ -112,7 +112,6 @@ public class StepDef extends DriverFactory {
 			
 //			Implicit wait			
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-			
 			driver.switchTo().frame("xyz");
 			
 			String window = driver.getWindowHandle();
